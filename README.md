@@ -1,4 +1,4 @@
-# Bithour
+# Bithour [![Gem Version](https://badge.fury.io/rb/bithour.svg)](http://badge.fury.io/rb/bithour) [![Build Status](https://secure.travis-ci.org/myokoym/bithour.png?branch=master)](http://travis-ci.org/myokoym/bithour)
 
 A library for range of hours in bits.
 
