@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See [test/test-range.rb](https://github.com/myokoym/bithour/blob/master/test/test-range.rb).
 
 ## Authors
 
