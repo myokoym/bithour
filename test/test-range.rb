@@ -38,4 +38,9 @@ class RangeTest < Test::Unit::TestCase
     @range.add(24, 24)
     assert_true(@range.include?(0))
   end
+
+  def test_to_a
+    @range.add(0, 1)
+    assert_equal([0, 1], @range.to_a)
+  end
 end
