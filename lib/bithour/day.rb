@@ -1,7 +1,8 @@
 module Bithour
   class Day
-    def initialize
+    def initialize(max=24)
       @day = 0
+      @max = max
     end
 
     def add(first_hour, last_hour)
@@ -18,10 +19,10 @@ module Bithour
 
     private
     def update(first_hour, last_hour, bit)
-      hours = "%024d" % @day.to_s(2)
+      hours = "%0#{@max}d" % @day.to_s(2)
       hours.reverse!
       first_hour.upto(last_hour) do |i|
-        hours[i] = bit
+        hours[i % @max] = bit
       end
       @day = hours.reverse.to_i(2)
     end

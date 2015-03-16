@@ -33,4 +33,9 @@ class DayTest < Test::Unit::TestCase
     assert_true(@day.include?(4))
     assert_false(@day.include?(5))
   end
+
+  def test_max
+    @day.add(24, 24)
+    assert_true(@day.include?(0))
+  end
 end
