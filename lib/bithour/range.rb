@@ -1,7 +1,7 @@
 module Bithour
   class Range
     def initialize(max=24)
-      @day = 0
+      @hours = 0
       @max = max
     end
 
@@ -14,11 +14,11 @@ module Bithour
     end
 
     def include?(hour)
-      @day[hour] == 1
+      @hours[hour] == 1
     end
 
     def to_a
-      bits = ("%0#{@max}d" % @day.to_s(2)).reverse.split(//)
+      bits = ("%0#{@max}d" % @hours.to_s(2)).reverse.split(//)
       hours = bits.collect.with_index {|hour, i| [i, hour]}
       hours.select! {|hour| hour[1] == "1"}
       hours.collect {|hour, bit| hour}
@@ -31,12 +31,12 @@ module Bithour
       else
         hours = [_hours]
       end
-      hour_str = "%0#{@max}d" % @day.to_s(2)
+      hour_str = "%0#{@max}d" % @hours.to_s(2)
       hour_str.reverse!
       hours.each do |i|
         hour_str[i % @max] = bit
       end
-      @day = hour_str.reverse.to_i(2)
+      @hours = hour_str.reverse.to_i(2)
     end
   end
 end
