@@ -1,4 +1,4 @@
-require "bithour/day"
+require "bithour/range"
 
 class RangeTest < Test::Unit::TestCase
   def setup
