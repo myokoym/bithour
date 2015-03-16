@@ -8,6 +8,10 @@ module Bithour
       update(first_hour, last_hour, "1")
     end
 
+    def remove(first_hour, last_hour)
+      update(first_hour, last_hour, "0")
+    end
+
     def include?(hour)
       @day[hour] == 1
     end
