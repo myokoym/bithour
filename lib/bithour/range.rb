@@ -26,12 +26,12 @@ module Bithour
 
     private
     def update(_hours, bit)
-      hours = "%0#{@max}d" % @day.to_s(2)
-      hours.reverse!
+      hour_str = "%0#{@max}d" % @day.to_s(2)
+      hour_str.reverse!
       _hours.each do |i|
-        hours[i % @max] = bit
+        hour_str[i % @max] = bit
       end
-      @day = hours.reverse.to_i(2)
+      @day = hour_str.reverse.to_i(2)
     end
   end
 end
