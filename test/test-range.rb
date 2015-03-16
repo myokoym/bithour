@@ -34,6 +34,12 @@ class RangeTest < Test::Unit::TestCase
     assert_false(@range.include?(5))
   end
 
+  def test_include
+    @range.add(0, 0)
+    assert_true(@range.include?(0))
+    assert_false(@range.include?(1))
+  end
+
   def test_max
     @range.add(24, 24)
     assert_true(@range.include?(0))
