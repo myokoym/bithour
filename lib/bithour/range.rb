@@ -1,5 +1,5 @@
 module Bithour
-  class Day
+  class Range
     def initialize(max=24)
       @day = 0
       @max = max
