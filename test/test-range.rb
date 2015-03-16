@@ -15,7 +15,7 @@ class RangeTest < Test::Unit::TestCase
   end
 
   def test_add_multiple
-    @range.add(*2..4)
+    @range.add(2..4)
     assert_equal([2, 3, 4], @range.to_a)
   end
 
@@ -27,8 +27,8 @@ class RangeTest < Test::Unit::TestCase
 
   def test_remove
     @range.add(0)
-    @range.add(*2..4)
-    @range.remove(2, 3)
+    @range.add(2..4)
+    @range.remove([2, 3])
     assert_equal([0, 4], @range.to_a)
   end
 
@@ -44,7 +44,7 @@ class RangeTest < Test::Unit::TestCase
   end
 
   def test_to_a
-    @range.add(*0..1)
+    @range.add(0..1)
     assert_equal([0, 1], @range.to_a)
   end
 end

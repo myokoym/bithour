@@ -5,11 +5,11 @@ module Bithour
       @max = max
     end
 
-    def add(*hours)
+    def add(hours)
       update(hours, "1")
     end
 
-    def remove(*hours)
+    def remove(hours)
       update(hours, "0")
     end
 
@@ -26,9 +26,14 @@ module Bithour
 
     private
     def update(_hours, bit)
+      if _hours.respond_to?(:each)
+        hours = _hours
+      else
+        hours = [_hours]
+      end
       hour_str = "%0#{@max}d" % @day.to_s(2)
       hour_str.reverse!
-      _hours.each do |i|
+      hours.each do |i|
         hour_str[i % @max] = bit
       end
       @day = hour_str.reverse.to_i(2)
