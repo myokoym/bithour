@@ -9,11 +9,20 @@ class RangeTest < Test::Unit::TestCase
     assert_not_nil(@range)
   end
 
-  def test_add
+  def test_add_single
     @range.add(0)
     assert_equal([0], @range.to_a)
+  end
+
+  def test_add_multiple
     @range.add(*2..4)
-    assert_equal([0, 2, 3, 4], @range.to_a)
+    assert_equal([2, 3, 4], @range.to_a)
+  end
+
+  def test_add_two_times
+    @range.add(0)
+    @range.add(2)
+    assert_equal([0, 2], @range.to_a)
   end
 
   def test_remove
