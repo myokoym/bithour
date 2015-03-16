@@ -5,12 +5,12 @@ module Bithour
       @max = max
     end
 
-    def add(first_hour, last_hour)
-      update(first_hour, last_hour, "1")
+    def add(*hours)
+      update(hours, "1")
     end
 
-    def remove(first_hour, last_hour)
-      update(first_hour, last_hour, "0")
+    def remove(*hours)
+      update(hours, "0")
     end
 
     def include?(hour)
@@ -25,10 +25,10 @@ module Bithour
     end
 
     private
-    def update(first_hour, last_hour, bit)
+    def update(_hours, bit)
       hours = "%0#{@max}d" % @day.to_s(2)
       hours.reverse!
-      first_hour.upto(last_hour) do |i|
+      _hours.each do |i|
         hours[i % @max] = bit
       end
       @day = hours.reverse.to_i(2)

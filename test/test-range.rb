@@ -10,43 +10,32 @@ class RangeTest < Test::Unit::TestCase
   end
 
   def test_add
-    @range.add(0, 0)
-    assert_true(@range.include?(0))
-    assert_false(@range.include?(1))
-    @range.add(2, 4)
-    assert_true(@range.include?(0))
-    assert_false(@range.include?(1))
-    assert_true(@range.include?(2))
-    assert_true(@range.include?(3))
-    assert_true(@range.include?(4))
-    assert_false(@range.include?(5))
+    @range.add(0)
+    assert_equal([0], @range.to_a)
+    @range.add(*2..4)
+    assert_equal([0, 2, 3, 4], @range.to_a)
   end
 
   def test_remove
-    @range.add(0, 0)
-    @range.add(2, 4)
+    @range.add(0)
+    @range.add(*2..4)
     @range.remove(2, 3)
-    assert_true(@range.include?(0))
-    assert_false(@range.include?(1))
-    assert_false(@range.include?(2))
-    assert_false(@range.include?(3))
-    assert_true(@range.include?(4))
-    assert_false(@range.include?(5))
+    assert_equal([0, 4], @range.to_a)
   end
 
   def test_include
-    @range.add(0, 0)
+    @range.add(0)
     assert_true(@range.include?(0))
     assert_false(@range.include?(1))
   end
 
   def test_max
-    @range.add(24, 24)
+    @range.add(24)
     assert_true(@range.include?(0))
   end
 
   def test_to_a
-    @range.add(0, 1)
+    @range.add(*0..1)
     assert_equal([0, 1], @range.to_a)
   end
 end
