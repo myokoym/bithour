@@ -1,8 +1,8 @@
-require "bytehour/day"
+require "bithour/day"
 
 class DayTest < Test::Unit::TestCase
   def setup
-    @day = Bytehour::Day.new
+    @day = Bithour::Day.new
   end
 
   def test_new

@@ -1,4 +1,4 @@
-module Bytehour
+module Bithour
   class Day
     def initialize
       @day = 0
