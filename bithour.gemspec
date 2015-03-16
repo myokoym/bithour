@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Masafumi Yokoyama"]
   spec.email = ["myokoym@gmail.com"]
 
-  spec.summary = "A library that handles hours range as bytes."
+  spec.summary = "A library for range of hours in bits."
   spec.description = spec.summary
   spec.homepage = "https://github.com/myokoym/bithour"
   spec.license = "MIT"
